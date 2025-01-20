@@ -4,10 +4,7 @@
 }
 
 #root {
-  /* max-width: 1280px; */
-  /* margin: 0 auto; */
   padding: 2rem;
-  /* text-align: center; */
 }
 
 body {
@@ -20,7 +17,6 @@ body {
   display: grid;
   grid-template-columns: 2fr 6fr 1fr;
   margin: 0 auto;
-  /* padding: 0 */
 }
 
 .form input:first-child {
@@ -30,7 +26,6 @@ body {
   margin-right: 0;
 }
 
-
 .tasks {
   display: flex;
   padding: 5px;
@@ -38,32 +33,27 @@ body {
   margin: 5px auto;
   border-radius: 10px;
   width: calc(80% - 10px);
-
-
-
 }
 
-.pull-right { 
+.pull-right {
   margin-left: auto;
   margin-right: 0;
   display: flex;
-  
 }
-
 
 p {
   padding-top: 10px;
   padding-left: 10px;
   color: white;
   stroke: white;
-
 }
 
 p:last-child {
   padding-bottom: 10px;
 }
 
-input, button {
+input,
+button {
   border-width: 0;
   border-radius: 10px;
   padding: 15px;
@@ -72,10 +62,8 @@ input, button {
   font-size: 15px;
 }
 button {
-  cursor:pointer;
-
+  cursor: pointer;
 }
-
 
 input {
   background-color: #333;
@@ -83,7 +71,7 @@ input {
   min-width: none;
 }
 
-.danger-btn { 
+.danger-btn {
   background-color: #f33;
 }
 
@@ -93,35 +81,29 @@ input {
 
 .name {
   font-size: 20px;
-
 }
 
-.description { 
+.description {
   color: lightgray;
 }
 
 input[type="checkbox"] {
-  width:25px;  
+  width: 25px;
 }
-
-
 
 .completed {
   display: flex;
   align-items: center;
-
 }
-.completed span { 
+.completed span {
   border-radius: 5px;
   color: white;
-  padding:5px;
+  padding: 5px;
   margin: 5px;
   background-color: #31b731;
-
 }
 
 .completed-info p {
-  text-decoration:line-through;
+  text-decoration: line-through;
   text-decoration-thickness: 2px;
-  
 }
