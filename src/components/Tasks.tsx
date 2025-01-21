@@ -13,7 +13,10 @@ const Tasks = ({
 }) => {
   const getIndexFromEvent = (e: React.MouseEvent) => {
     let target = e.target as HTMLButtonElement | HTMLInputElement;
-    let parentElement = target.parentElement?.parentElement;
+    let parentElement: HTMLElement | null | undefined = target.parentElement
+    // this is needed due to the edit & delete buttons being 2 parents up while checkbox is only 1
+    if(!parentElement?.id) parentElement = parentElement?.parentElement
+
     if (!parentElement) return -1;
 
     let index = parseInt(parentElement.id);
