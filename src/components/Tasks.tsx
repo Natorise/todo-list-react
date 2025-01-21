@@ -1,16 +1,19 @@
 import React from "react";
 import { Task } from "../Task";
+import { ModalInfo } from "../App";
 
 const Tasks = ({
   tasks,
   setTasks,
+  setModalInfo
 }: {
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  setModalInfo: React.Dispatch<React.SetStateAction<ModalInfo>>;
 }) => {
   const getIndexFromEvent = (e: React.MouseEvent) => {
     let target = e.target as HTMLButtonElement | HTMLInputElement;
-    let parentElement = target.parentElement;
+    let parentElement = target.parentElement?.parentElement;
     if (!parentElement) return -1;
 
     let index = parseInt(parentElement.id);
@@ -19,7 +22,12 @@ const Tasks = ({
     return index;
   };
 
-  const DeleteTask = (e: React.MouseEvent) => {
+  const editTask = (e: React.MouseEvent) => {
+    const index = getIndexFromEvent(e);
+    setModalInfo({id:index})
+  };
+
+  const deleteTask = (e: React.MouseEvent) => {
     const index = getIndexFromEvent(e);
     setTasks(tasks.filter((_x, i) => i !== index));
   };
@@ -56,7 +64,10 @@ const Tasks = ({
                 <span>Completed</span>
               </div>
             )}
-            <button className="danger-btn" onClick={DeleteTask}>
+            <button className="secondary-btn" onClick={editTask}>
+              Edit
+            </button>
+            <button className="danger-btn" onClick={deleteTask}>
               Delete
             </button>
           </div>
