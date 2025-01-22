@@ -5,7 +5,7 @@ import { ModalInfo } from "../App";
 const Tasks = ({
   tasks,
   setTasks,
-  setModalInfo
+  setModalInfo,
 }: {
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
@@ -13,9 +13,9 @@ const Tasks = ({
 }) => {
   const getIndexFromEvent = (e: React.MouseEvent) => {
     let target = e.target as HTMLButtonElement | HTMLInputElement;
-    let parentElement: HTMLElement | null | undefined = target.parentElement
+    let parentElement: HTMLElement | null | undefined = target.parentElement?.parentElement;
     // this is needed due to the edit & delete buttons being 2 parents up while checkbox is only 1
-    if(!parentElement?.id) parentElement = parentElement?.parentElement
+    if (!parentElement?.id) parentElement = parentElement?.parentElement;
 
     if (!parentElement) return -1;
 
@@ -27,7 +27,7 @@ const Tasks = ({
 
   const editTask = (e: React.MouseEvent) => {
     const index = getIndexFromEvent(e);
-    setModalInfo({id:index})
+    setModalInfo({ id: index });
   };
 
   const deleteTask = (e: React.MouseEvent) => {
@@ -51,28 +51,31 @@ const Tasks = ({
     <div>
       {tasks.map((task, i) => (
         <div className="tasks" key={i} id={String(i)}>
-          <input
-            type="checkbox"
-            checked={task.completed}
-            onClick={setTaskCompleted}
-          />
-          <div className={`info  ${task.completed ? "completed-info" : ""}`}>
-            <p className="name">{task.name}</p>
-            <p className="description">{task.description}</p>
+          <div className="pull-left">
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onClick={setTaskCompleted}
+            />
+            <div className={`info  ${task.completed ? "completed-info" : ""}`}>
+              <p className="name">{task.name}</p>
+              <p className="description">{task.description}</p>
+            </div>
           </div>
-
           <div className="pull-right">
             {task.completed && (
               <div className="completed">
                 <span>Completed</span>
               </div>
             )}
+            <div className="buttons">
             <button className="secondary-btn" onClick={editTask}>
               Edit
             </button>
             <button className="danger-btn" onClick={deleteTask}>
               Delete
             </button>
+            </div>
           </div>
         </div>
       ))}

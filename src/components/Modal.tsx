@@ -48,7 +48,6 @@ const Modal = ({
           &times;
         </span>
         <p className="name">Edit Task</p>
-        <div className="clearfix"></div>
         <div className="modal-input">
           <input
             type="text"
