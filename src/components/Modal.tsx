@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ModalInfo } from "../App";
 import { Task } from "../Task";
+import { onEnter } from "./Form";
 
 const Modal = ({
   tasks,
@@ -55,6 +56,7 @@ const Modal = ({
             placeholder="Task Name"
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
+            onKeyDown={onEnter}
           />
           <input
             type="text"
@@ -62,6 +64,7 @@ const Modal = ({
             placeholder="Task Description"
             value={taskDescription}
             onChange={(e) => setTaskDescription(e.target.value)}
+            onKeyDown={onEnter}
           />
           <button className="primary-btn modal-input" onClick={saveTask}>
             Save

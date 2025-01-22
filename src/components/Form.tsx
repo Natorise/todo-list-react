@@ -28,6 +28,8 @@ const Form = ({
     setTaskObj(newTaskObj);
   };
 
+
+
   return (
     <div className="form">
       <input
@@ -36,6 +38,7 @@ const Form = ({
         value={taskObj.name}
         placeholder="Task Name"
         id="name"
+        onKeyDown={onEnter}
       />
       <input
         type="text"
@@ -43,6 +46,7 @@ const Form = ({
         value={taskObj.description}
         placeholder="Task Description"
         id="description"
+        onKeyDown={onEnter}
       />
       <button className="primary-btn" onClick={addTask}>
         Add
@@ -52,3 +56,24 @@ const Form = ({
 };
 
 export default Form;
+
+
+export const onEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  if (e.key === "Enter") {
+    let nextElement = (e.target as HTMLInputElement).nextElementSibling as
+      | HTMLInputElement
+      | HTMLButtonElement;
+    if (!nextElement) return;
+
+    if (nextElement instanceof HTMLInputElement) nextElement.focus();
+    else if (nextElement instanceof HTMLButtonElement) {
+      nextElement.click();
+
+      // return to first input
+      let previousElement = (e.target as HTMLInputElement)
+        .previousElementSibling as HTMLInputElement;
+      if (!previousElement) return;
+      previousElement.focus();
+    }
+  }
+};
