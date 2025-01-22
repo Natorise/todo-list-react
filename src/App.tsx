@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import Tasks from "./components/Tasks";
@@ -35,7 +35,7 @@ function App() {
   useEffect(()=>{
     localStorage.setItem("tasks",JSON.stringify(tasks))
   },[tasks])
-  
+
   return (
     <>
       <Modal tasks={tasks} setTasks={setTasks} modalInfo={modalInfo} setModalInfo={setModalInfo} />
