@@ -44,8 +44,8 @@ body {
 }
 
 .buttons button {
-  height:100%;
-  margin-top:0;
+  height: 100%;
+  margin-top: 0;
 }
 
 p {
@@ -156,31 +156,26 @@ input[type="checkbox"] {
   display: flex;
   flex-direction: column;
   clear: both;
-
 }
-
-
-
 
 @media (max-width: 800px) {
   body {
     padding: 1rem;
     /* padding: 0; */
     /* padding-top: 1rem; */
-
   }
   .form {
-    width:100%;
+    width: 100%;
     grid-template-columns: 1fr;
   }
-  .form * {    
+  .form * {
     margin-left: 0;
     margin-right: 0;
   }
 
   .tasks {
-    width:100%;
-    display:block;
+    width: 100%;
+    display: block;
   }
   .pull-right span {
     margin-left: auto;
@@ -195,13 +190,16 @@ input[type="checkbox"] {
   .pull-right .buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width:100%;
-    
+    width: 100%;
   }
   .pull-right .buttons button:first-child {
     margin-left: 0;
   }
   .pull-right .buttons button:last-child {
     margin-right: 0;
+  }
+
+  .modal-content {
+    margin: 30% auto;
   }
 }
